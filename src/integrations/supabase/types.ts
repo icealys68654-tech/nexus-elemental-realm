@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      worlds: {
+        Row: {
+          created_at: string
+          grid: Json
+          height: number
+          id: string
+          legend: Json
+          lore: string
+          published: boolean
+          title: string
+          updated_at: string
+          user_id: string
+          width: number
+        }
+        Insert: {
+          created_at?: string
+          grid?: Json
+          height?: number
+          id?: string
+          legend?: Json
+          lore?: string
+          published?: boolean
+          title?: string
+          updated_at?: string
+          user_id: string
+          width?: number
+        }
+        Update: {
+          created_at?: string
+          grid?: Json
+          height?: number
+          id?: string
+          legend?: Json
+          lore?: string
+          published?: boolean
+          title?: string
+          updated_at?: string
+          user_id?: string
+          width?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
