@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { MapGrid } from "@/components/MapGrid";
 import { WorldViewer3D } from "@/components/WorldViewer3D";
-import { ElementLegend, type LegendEntry } from "@/components/ElementLegend";
+import { ElementLegend } from "@/components/ElementLegend";
+import { toLegend } from "@/lib/legend";
 import { useState } from "react";
 
 export const Route = createFileRoute("/atlas")({
@@ -77,7 +78,7 @@ function Atlas() {
             <div className="lg:col-span-1">
               <ElementLegend
                 grid={(open.grid as string[]) ?? []}
-                entries={(open.legend as LegendEntry[]) ?? []}
+                entries={toLegend(open.legend)}
               />
             </div>
             <WorldViewer3D grid={(open.grid as string[]) ?? []} />

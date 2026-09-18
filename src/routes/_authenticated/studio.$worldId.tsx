@@ -8,6 +8,7 @@ import { StudioHeader } from "@/components/StudioHeader";
 import { MapGrid } from "@/components/MapGrid";
 import { WorldViewer3D } from "@/components/WorldViewer3D";
 import { ElementLegend, type LegendEntry } from "@/components/ElementLegend";
+import { toLegend } from "@/lib/legend";
 import { ELEMENTS, emptyGrid, normalizeGrid, setCell, type ElementCode } from "@/lib/elements";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,7 +66,7 @@ function WorldForge() {
     setTitle(world.title);
     setLore(world.lore);
     setGrid(normalizeGrid(world.grid, world.width, world.height));
-    setLegend(((world.legend as LegendEntry[]) ?? []).filter(Boolean));
+    setLegend(toLegend(world.legend));
     setPublished(world.published);
   }, [world]);
 
@@ -73,7 +74,7 @@ function WorldForge() {
     setSaving(true);
     const { error } = await supabase
       .from("worlds")
-      .update({ title, lore, grid, legend, published, ...extra })
+      .update({ title, lore, grid, legend: legend as unknown as never, published, ...extra })
       .eq("id", worldId);
     setSaving(false);
     if (error) {
