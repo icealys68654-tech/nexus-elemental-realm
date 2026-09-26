@@ -1,6 +1,6 @@
 # Elemental Worlds Builder
 
-Using the linked files and using this script - modal grid agent < mesh generator agent < ai agent gatherer - make a website with a responsive content management system that generates 2D maps with legends referencing water, fire, earth, air elements transformed from 2D space into 3D worlds.
+Using the linked files and using this script - modal grid agent < mesh generator agent < ai agent gatherer - make a website with a responsive content management system that generates random 2D maps with legends referencing water, fire, earth, air elements transformed from 2D space into 3D worlds.
 
 This project was built with [Lovable](https://lovable.dev).
 
